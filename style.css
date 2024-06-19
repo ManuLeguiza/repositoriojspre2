@@ -1,7 +1,7 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #e0f7fa;
-    color: #00796b;
+    background-color: #000a12;
+    color: #cda608;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -11,7 +11,7 @@ body {
     gap: 2rem;
 
     header {
-        background-color: #ffffff;
+        background-color: #020230;
 
         h1 {
             text-align: center;
@@ -20,7 +20,7 @@ body {
     }
 
     #juego, #resultado {
-    background-color: #ffffff;
+    background-color: #000762;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding: 20px;

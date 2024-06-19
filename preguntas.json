@@ -1,0 +1,52 @@
+[
+    {
+        "pregunta": "¿Quién ganó el Balón de Oro en 2023?",
+        "opciones": ["Lionel Messi", "Cristiano Ronaldo", "Robert Lewandowski", "Kylian Mbappé"],
+        "respuesta": "Lionel Messi"
+    },
+    {
+        "pregunta": "¿Qué equipo ganó la Champions League en 2023?",
+        "opciones": ["Manchester City", "Real Madrid", "Chelsea", "Bayern Múnich"],
+        "respuesta": "Manchester City"
+    },
+    {
+        "pregunta": "¿Quién fue el máximo goleador de la Premier League 2023?",
+        "opciones": ["Erling Haaland", "Harry Kane", "Mohamed Salah", "Jamie Vardy"],
+        "respuesta": "Erling Haaland"
+    },
+    {
+        "pregunta": "¿Qué país ganó la Copa América en 2021?",
+        "opciones": ["Argentina", "Brasil", "Chile", "Uruguay"],
+        "respuesta": "Argentina"
+    },
+    {
+        "pregunta": "¿Qué jugador ganó el premio FIFA The Best en 2022?",
+        "opciones": ["Robert Lewandowski", "Lionel Messi", "Cristiano Ronaldo", "Karim Benzema"],
+        "respuesta": "Robert Lewandowski"
+    },
+    {
+        "pregunta": "¿Qué equipo ganó La Liga en 2023?",
+        "opciones": ["Barcelona", "Real Madrid", "Atlético Madrid", "Sevilla"],
+        "respuesta": "Barcelona"
+    },
+    {
+        "pregunta": "¿Quién fue el máximo asistente de la Bundesliga 2023?",
+        "opciones": ["Thomas Müller", "Joshua Kimmich", "Leroy Sané", "Marco Reus"],
+        "respuesta": "Thomas Müller"
+    },
+    {
+        "pregunta": "¿Qué equipo ganó la Serie A en 2023?",
+        "opciones": ["Inter de Milán", "AC Milán", "Juventus", "Napoli"],
+        "respuesta": "Napoli"
+    },
+    {
+        "pregunta": "¿Quién ganó el premio Golden Boy en 2022?",
+        "opciones": ["Pedri", "Jude Bellingham", "Jamal Musiala", "Gavi"],
+        "respuesta": "Gavi"
+    },
+    {
+        "pregunta": "¿Qué selección ganó la Eurocopa 2020 (jugada en 2021)?",
+        "opciones": ["Italia", "Inglaterra", "España", "Francia"],
+        "respuesta": "Italia"
+    }
+]

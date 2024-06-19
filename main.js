@@ -1,66 +1,72 @@
-const preguntas = [
-    {
-        pregunta: "¿Quién ganó el Balón de Oro en 2023?",
-        opciones: ["Lionel Messi", "Cristiano Ronaldo", "Robert Lewandowski", "Kylian Mbappé"],
-        respuesta: "Lionel Messi"
-    },
-    {
-        pregunta: "¿Qué equipo ganó la Champions League en 2023?",
-        opciones: ["Manchester City", "Real Madrid", "Chelsea", "Bayern Múnich"],
-        respuesta: "Manchester City"
-    },
-    {
-        pregunta: "¿Quién fue el máximo goleador de la Premier League 2023?",
-        opciones: ["Erling Haaland", "Harry Kane", "Mohamed Salah", "Jamie Vardy"],
-        respuesta: "Erling Haaland"
-    }
-];
 
-let puntaje = 0;
-let preguntaActual = 0;
+        import { cargarPreguntas } from './preguntas.js';
 
-const juegoDiv = document.getElementById('juego');
-const preguntaDiv = document.getElementById('pregunta');
-const opcionesDiv = document.getElementById('opciones');
-const siguienteBtn = document.getElementById('siguiente');
-const resultadoDiv = document.getElementById('resultado');
-const puntajeP = document.getElementById('puntaje');
+        class JuegoDePreguntas {
+            constructor(preguntas) {
+                this.preguntas = preguntas;
+                this.puntaje = 0;
+                this.preguntaActual = 0;
+                
+                this.juegoDiv = document.getElementById('juego');
+                this.preguntaDiv = document.getElementById('pregunta');
+                this.opcionesDiv = document.getElementById('opciones');
+                this.siguienteBtn = document.getElementById('siguiente');
+                this.resultadoDiv = document.getElementById('resultado');
+                this.puntajeP = document.getElementById('puntaje');
 
-function mostrarPregunta() {
-    const preguntaObj = preguntas[preguntaActual];
-    preguntaDiv.textContent = preguntaObj.pregunta;
-    opcionesDiv.innerHTML = '';
+                this.siguienteBtn.addEventListener('click', this.siguientePregunta.bind(this));
+                
+                this.mostrarPregunta();
+            }
 
-    preguntaObj.opciones.forEach(opcion => {
-        const opcionBtn = document.createElement('button');
-        opcionBtn.textContent = opcion;
-        opcionBtn.addEventListener('click', () => verificarRespuesta(opcion));
-        opcionesDiv.appendChild(opcionBtn);
-    });
-}
+            mostrarPregunta() {
+                const { pregunta, opciones } = this.preguntas[this.preguntaActual];
+                this.preguntaDiv.textContent = pregunta;
+                this.opcionesDiv.innerHTML = '';
 
-function verificarRespuesta(opcionSeleccionada) {
-    const preguntaObj = preguntas[preguntaActual];
-    if (opcionSeleccionada === preguntaObj.respuesta) {
-        puntaje++;
-    }
-    siguienteBtn.style.display = 'block';
-}
+                opciones.forEach(opcion => {
+                    const opcionBtn = document.createElement('button');
+                    opcionBtn.textContent = opcion;
+                    opcionBtn.addEventListener('click', () => this.verificarRespuesta(opcion));
+                    this.opcionesDiv.appendChild(opcionBtn);
+                });
+            }
 
-siguienteBtn.addEventListener('click', () => {
-    preguntaActual++;
-    if (preguntaActual < preguntas.length) {
-        mostrarPregunta();
-        siguienteBtn.style.display = 'none';
-    } else {
-        juegoDiv.style.display = 'none';
-        resultadoDiv.style.display = 'block';
-        puntajeP.textContent = `Tu puntaje final es: ${puntaje} de ${preguntas.length}`;
-    }
-});
+            verificarRespuesta(opcionSeleccionada) {
+                const { respuesta } = this.preguntas[this.preguntaActual];
+                if (opcionSeleccionada === respuesta) {
+                    this.puntaje++;
+                }
+                this.siguienteBtn.style.display = 'block';
+            }
 
-mostrarPregunta();
+            siguientePregunta() {
+                this.preguntaActual++;
+                if (this.preguntaActual < this.preguntas.length) {
+                    this.mostrarPregunta();
+                    this.siguienteBtn.style.display = 'none';
+                } else {
+                    this.mostrarResultado();
+                }
+            }
 
+            mostrarResultado() {
+                this.juegoDiv.style.display = 'none';
+                this.resultadoDiv.style.display = 'block';
+                this.puntajeP.textContent = `Tu puntaje final es: ${this.puntaje} de ${this.preguntas.length}`;
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            cargarPreguntas('preguntas.json')
+                .then(preguntas => {
+                    if (preguntas.length > 0) {
+                        new JuegoDePreguntas(preguntas);
+                    } else {
+                        console.error("No se encontraron preguntas en el archivo JSON.");
+                    }
+                });
+        });
 
 
 
